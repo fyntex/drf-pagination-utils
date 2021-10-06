@@ -1,0 +1,73 @@
+# Configuration (Environment Variables) v1
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Configuration (Environment Variables) v2
+env
+*.env
+.*.env
+!example.env
+!*.example.env
+!.*.example.env
+
+# Git
+.git/
+
+# Compiled Python Files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python Distribution & Packaging
+/*.egg-info/
+/build/
+/dist/
+
+# Mypy
+.mypy_cache/
+
+# Coverage.py
+.coverage
+.*.coverage
+
+# Python Virtual Environment
+/.pyenv/
+/pyenv/
+
+# IPython
+.ipython/
+
+# Shell History
+.bash_history
+
+# XDG Base Directory Specification
+.local/
+.config/
+.cache/
+
+# Logs
+*.log
+
+# Test Reports
+/test_reports/
+
+# Sublime Text
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+*.code-workspace
+
+# Visual Studio Code - Local History
+.history/
+
+# PyCharm / IntelliJ IDEA
+.idea/
+
+# Temporary Files
+/tmp/*
+
+# Keep
+!.keep

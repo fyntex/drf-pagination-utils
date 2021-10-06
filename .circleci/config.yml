@@ -1,0 +1,294 @@
+# CircleCI 2.0 configuration file for this project.
+#
+# Notes:
+#   - Do not use CircleCI's brand of Docker images unless it is for a secondary environment.
+#
+# For more information check out:
+#   - https://circleci.com/docs/2.0/language-python/
+#   - https://circleci.com/docs/2.0/configuration-reference/
+#   - https://circleci.com/docs/2.0/env-vars/
+#   - https://circleci.com/docs/2.0/pipeline-variables/
+
+version: "2.1"
+
+# -----BEGIN Environment Variables-----
+
+# x-parameters-base := Common pipeline/job parameters
+x-parameters-base: &x-parameters-base
+  python_version:
+    description: Python Version
+    type: string
+    default: "3.8.10"
+
+# x-environment-base := Common environment variables
+x-environment-base: &x-environment-base
+  PYTHON_VIRTUALENV_ACTIVATE: .pyenv/<< parameters.python_version >>/bin/activate
+
+# x-app-environment-test := Environment variables for testing
+x-app-environment-test: &x-app-environment-test
+  <<: *x-environment-base
+
+# -----END Environment Variables-----
+
+executors:
+  default:
+    parameters:
+      <<: *x-parameters-base
+
+    docker:
+      - image: docker.io/library/python:<< parameters.python_version >>-buster
+
+jobs:
+  # -----BEGIN Build Job-----
+  build:
+    parameters:
+      <<: *x-parameters-base
+
+    environment:
+      <<: *x-environment-base
+
+    executor:
+      name: default
+      python_version: << parameters.python_version >>
+
+    working_directory: ~/opt/library
+
+    steps:
+      - restore_cache:
+          keys:
+            - vcs-v1-src-{{ .Branch }}-{{ .Revision }}
+            - vcs-v1-src-{{ .Branch }}-
+            - vcs-v1-src-
+
+      - checkout
+
+      - save_cache:
+          key: vcs-v1-src-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - .git
+
+      - run:
+          name: Create Python Virtual Environment
+          command: make python-virtualenv PYTHON_VIRTUALENV_DIR="$PYTHON_VIRTUALENV_DIR"
+          environment:
+            PYTHON_VIRTUALENV_DIR: .pyenv/<< parameters.python_version >>
+
+      - restore_cache:
+          keys:
+            - py-v1-deps-{{
+              checksum "requirements.txt" }}-{{
+              checksum "requirements-dev.txt" }}
+
+      - run:
+          name: Install Library
+          command: |
+            source "$PYTHON_VIRTUALENV_ACTIVATE"
+            make install-dev
+
+      - save_cache:
+          key: py-v1-deps-{{
+            checksum "requirements.txt" }}-{{
+            checksum "requirements-dev.txt" }}
+          paths:
+            - .pyenv/<< parameters.python_version >>
+
+      - persist_to_workspace:
+          root: ~/opt/library
+          paths:
+            - .pyenv/<< parameters.python_version >>
+
+  # -----END Build Job-----
+
+  # -----BEGIN Test Job-----
+  test:
+    parameters:
+      <<: *x-parameters-base
+
+    environment:
+      <<: *x-app-environment-test
+
+    executor:
+      name: default
+      python_version: << parameters.python_version >>
+
+    working_directory: ~/opt/library
+
+    steps:
+      - restore_cache:
+          keys:
+            - vcs-v1-src-{{ .Branch }}-{{ .Revision }}
+            - vcs-v1-src-{{ .Branch }}-
+            - vcs-v1-src-
+
+      - checkout
+
+      - attach_workspace:
+          at: ~/opt/library
+
+      - run:
+          name: Test Report
+          command: |
+            source "$PYTHON_VIRTUALENV_ACTIVATE"
+            make test-report
+
+      - run:
+          name: Lint Report
+          command: |
+            source "$PYTHON_VIRTUALENV_ACTIVATE"
+            make lint-report
+
+      - run:
+          name: Test
+          command: |
+            source "$PYTHON_VIRTUALENV_ACTIVATE"
+            make test
+
+      - run:
+          name: Lint
+          command: |
+            source "$PYTHON_VIRTUALENV_ACTIVATE"
+            make lint
+
+      - run:
+          name: Test Coverage
+          command: |
+            source "$PYTHON_VIRTUALENV_ACTIVATE"
+            make test-coverage
+
+      - run:
+          name: Test Coverage Report
+          command: |
+            source "$PYTHON_VIRTUALENV_ACTIVATE"
+            make test-coverage-report
+
+      - run:
+          name: Check that compiled Python dependency manifests are up-to-date with their sources
+          command: |
+            source "$PYTHON_VIRTUALENV_ACTIVATE"
+            make --ignore-errors python-deps-sync-check
+
+      - store_test_results:
+          path: test_reports/junit
+
+      - store_artifacts:
+          path: test_reports
+          destination: test_reports
+
+  # -----END Test Job-----
+
+  # -----BEGIN Release Job-----
+  release:
+    parameters:
+      <<: *x-parameters-base
+
+    environment:
+      <<: *x-environment-base
+
+    executor: default
+
+    working_directory: ~/opt/library
+
+    steps:
+      - restore_cache:
+          keys:
+            - vcs-v1-src-{{ .Branch }}-{{ .Revision }}
+            - vcs-v1-src-{{ .Branch }}-
+            - vcs-v1-src-
+
+      - checkout
+
+      - attach_workspace:
+          at: ~/opt/library
+
+      - deploy:
+          name: Build Python Package
+          command: |
+            source "$PYTHON_VIRTUALENV_ACTIVATE"
+            make build
+
+      - deploy:
+          name: Create Python Package Distribution
+          command: |
+            source "$PYTHON_VIRTUALENV_ACTIVATE"
+            make dist
+
+      - store_artifacts:
+          path: dist
+          destination: dist
+
+      - persist_to_workspace:
+          root: ~/opt/library
+          paths:
+            - dist
+
+  # -----END Release Job-----
+
+  # -----BEGIN Deploy Job-----
+  deploy:
+    parameters:
+      <<: *x-parameters-base
+
+    environment:
+      <<: *x-environment-base
+
+    executor: default
+
+    working_directory: ~/opt/library
+
+    steps:
+      - restore_cache:
+          keys:
+            - vcs-v1-src-{{ .Branch }}-{{ .Revision }}
+            - vcs-v1-src-{{ .Branch }}-
+            - vcs-v1-src-
+
+      - checkout
+
+      - attach_workspace:
+          at: ~/opt/library
+
+      - deploy:
+          name: Upload Artifacts to Repository
+          command: |
+            source "$PYTHON_VIRTUALENV_ACTIVATE"
+            ls -al dist/ # TODO: Implement.
+
+  # -----END Deploy Job-----
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - build:
+          matrix:
+            parameters:
+              python_version:
+                - "3.8.10"
+                - "3.9.7"
+
+      - test:
+          requires:
+            - build-<< matrix.python_version >>
+          matrix:
+            parameters:
+              python_version:
+                - "3.8.10"
+                - "3.9.7"
+
+      - release:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only:
+                - develop
+                - master
+
+      - deploy:
+          requires:
+            - release
+          filters:
+            branches:
+              only:
+                - master

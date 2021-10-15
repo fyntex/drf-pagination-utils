@@ -1,0 +1,8 @@
+# Python Dependency Manifest
+#
+# Deployment environment: base, production
+
+# Note: To install a package from a Git VCS repository, see the following example:
+#   git+https://github.com/example/example.git@example-vcs-ref#egg=example-pkg[foo,bar]==1.42.3
+
+djangorestframework==3.12.4

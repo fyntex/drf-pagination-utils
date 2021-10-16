@@ -28,6 +28,7 @@ COVERAGE_TEST_DATA_FILE = $(CURDIR)/.test.coverage
 TEST_REPORT_DIR = $(CURDIR)/test_reports
 
 include make/_common/help.mk
+include make/django.mk
 include make/python.mk
 include make/vcs.mk
 

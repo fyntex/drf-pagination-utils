@@ -70,3 +70,29 @@ class LinkHeaderPageNumberPagination(rest_framework.pagination.PageNumberPaginat
         url = self.request.build_absolute_uri()
         result_url: str = remove_query_param(url, self.page_query_param)
         return result_url
+
+
+class ObjectCountHeaderPageNumberPagination(rest_framework.pagination.PageNumberPagination):
+    """
+    A simple page number–based style that adds a header with the total number of objects to
+    responses.
+    """
+
+    object_count_header: Optional[str] = None
+    """
+    Name of the response header that specifies the total number of objects.
+
+    If ``None``, no header will be added.
+    """
+
+    def get_paginated_response(self, data: object) -> DrfResponse:
+        response = super().get_paginated_response(data)
+
+        if self.page.has_other_pages():
+            self.add_object_count_header(response)
+
+        return response
+
+    def add_object_count_header(self, response: DrfResponse) -> None:
+        if self.object_count_header:
+            response[self.object_count_header] = self.page.paginator.count

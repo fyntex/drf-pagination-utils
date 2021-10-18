@@ -24,6 +24,7 @@ from rest_framework.settings import api_settings as drf_settings
 
 
 class StandardResultSetPagination(
+    fyntex.drf_pagination_utils.styles.ObjectCountHeaderPageNumberPagination,
     fyntex.drf_pagination_utils.styles.LinkHeaderPageNumberPagination,
 ):
     """
@@ -44,6 +45,8 @@ class StandardResultSetPagination(
     """
     Maximum page size the client may request.
     """
+
+    object_count_header: Optional[str] = 'X-Pagination-Total-Item-Count'
 ```
 
 Django settings:

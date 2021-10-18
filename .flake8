@@ -1,0 +1,33 @@
+# Flake8 Configuration
+#
+# Flake8 is a Python source code linter.
+#
+# - Web site: https://flake8.pycqa.org/
+# - Documentation: https://flake8.pycqa.org/
+
+[flake8]
+exclude =
+  *.egg,
+  *.egg-info,
+  .cache,
+  .config,
+  .eggs,
+  .git,
+  .idea,
+  .local,
+  .mypy_cache,
+  .pyenv,
+  .tox,
+  .vscode,
+  __pycache__,
+  build,
+  dist,
+  docs,
+  pyenv,
+  test_reports,
+  tmp
+
+doctests = True
+max-line-length = 100
+show_source = True
+statistics = False

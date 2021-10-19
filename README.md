@@ -5,12 +5,17 @@ This is a library that provides custom pagination styles and pagination-related 
 REST Framework.
 
 
+## Status
+
+[![CircleCI](https://circleci.com/gh/fyntex/drf-pagination-utils/tree/develop.svg?style=shield)](https://circleci.com/gh/fyntex/drf-pagination-utils/tree/develop)
+
+
 ## Installation
 
 Install Python package:
 
 ```sh
-pip install 'git+https://github.com/fyntex/drf-pagination-utils.git@abcdef0123456789-vcs-ref#egg=fyntex-drf-pagination-utils==x.y.z'
+pip install 'git+https://github.com/fyntex/drf-pagination-utils.git@v1.0.0#egg=fyntex-drf-pagination-utils==1.0.0'
 ```
 
 

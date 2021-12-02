@@ -71,6 +71,20 @@ class LinkHeaderPageNumberPagination(rest_framework.pagination.PageNumberPaginat
         result_url: str = remove_query_param(url, self.page_query_param)
         return result_url
 
+    def get_paginated_response_schema(self, schema: Mapping[str, object]) -> Mapping[str, object]:
+        """
+        Return schema for paginated responses.
+
+        .. note:: The paginated and non-paginated schemas are the same because pagination links are
+          included in the response headers, not as part of the content of the response.
+
+        .. seealso:: :meth:`rest_framework.pagination.BasePagination.get_paginated_response_schema`
+
+        :param schema: Original, non-paginated response schema.
+        :return: Paginated response schema.
+        """
+        return schema
+
 
 class ObjectCountHeaderPageNumberPagination(rest_framework.pagination.PageNumberPagination):
     """
@@ -96,3 +110,17 @@ class ObjectCountHeaderPageNumberPagination(rest_framework.pagination.PageNumber
     def add_object_count_header(self, response: DrfResponse) -> None:
         if self.object_count_header:
             response[self.object_count_header] = self.page.paginator.count
+
+    def get_paginated_response_schema(self, schema: Mapping[str, object]) -> Mapping[str, object]:
+        """
+        Return schema for paginated responses.
+
+        .. note:: The paginated and non-paginated schemas are the same because pagination links are
+          included in the response headers, not as part of the content of the response.
+
+        .. seealso:: :meth:`rest_framework.pagination.BasePagination.get_paginated_response_schema`
+
+        :param schema: Original, non-paginated response schema.
+        :return: Paginated response schema.
+        """
+        return schema

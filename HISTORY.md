@@ -1,5 +1,11 @@
 # History
 
+## 1.0.1 (2021-12-02)
+
+- (PR #14, 2021-10-19) chore: Fix file permissions
+- (PR #15, 2021-10-19) chore(README): Add CI status badge and update installation instructions
+- (PR #16, 2021-12-02) fix: Change DRF auto-generated schema for paginated response content
+
 ## 1.0.0 (2021-10-18)
 
 - (PR #4, 2021-10-13) Add software license and add readme for Python package `fyntex-drf-pagination-utils`

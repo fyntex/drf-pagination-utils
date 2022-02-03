@@ -4,23 +4,29 @@
 #
 #    pip-compile requirements-dev.in
 #
+asttokens==2.0.5
+    # via stack-data
 backcall==0.2.0
     # via ipython
 black==22.1.0
-    # via -r requirements-dev.in
+    # via
+    #   -r requirements-dev.in
+    #   ipython
 click==8.0.1
     # via black
 coverage==6.0
     # via -r requirements-dev.in
 decorator==5.1.0
     # via ipython
+executing==0.8.2
+    # via stack-data
 flake8==4.0.1
     # via
     #   -r requirements-dev.in
     #   flake8-formatter-junit-xml
 flake8-formatter-junit-xml==0.0.6
     # via -r requirements-dev.in
-ipython==7.31.1
+ipython==8.0.1
     # via -r requirements-dev.in
 isort==5.10.1
     # via -r requirements-dev.in
@@ -54,6 +60,8 @@ prompt-toolkit==3.0.20
     # via ipython
 ptyprocess==0.7.0
     # via pexpect
+pure-eval==0.2.2
+    # via stack-data
 pycodestyle==2.8.0
     # via flake8
 pyflakes==2.4.0
@@ -62,6 +70,8 @@ pygments==2.10.0
     # via ipython
 six==1.16.0
     # via junit-xml
+stack-data==0.1.4
+    # via ipython
 tomli==1.2.1
     # via
     #   black

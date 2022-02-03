@@ -10,7 +10,7 @@ black==22.1.0
     # via -r requirements-dev.in
 click==8.0.1
     # via black
-coverage==6.0
+coverage==6.3.1
     # via -r requirements-dev.in
 decorator==5.1.0
     # via ipython

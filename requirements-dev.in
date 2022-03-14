@@ -10,5 +10,5 @@ flake8-formatter-junit-xml==0.0.6
 flake8==4.0.1
 ipython==7.31.1
 isort==5.10.1
-mypy==0.931
+mypy==0.941
 unittest-xml-reporting==3.2.0

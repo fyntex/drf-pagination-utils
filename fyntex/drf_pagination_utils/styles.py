@@ -85,6 +85,134 @@ class LinkHeaderPageNumberPagination(rest_framework.pagination.PageNumberPaginat
         """
         return schema
 
+    def get_paginated_components_schemas(
+        self, components: Mapping[str, Mapping[str, object]]
+    ) -> Mapping[str, Mapping[str, object]]:
+        """
+        Return schema for pagination-related components.
+
+        .. seealso::
+          https://github.com/OAI/OpenAPI-Specification/blob/3.0.2/versions/3.0.2.md#components-object
+
+        :param components: OpenAPI ``Components`` object.
+        :return: Updated OpenAPI ``Components`` object.
+        """
+        if hasattr(super(), 'get_paginated_components_schemas'):
+            components = super().get_paginated_components_schemas(components)
+
+        component_name = 'headers'
+        content = {
+            'Link': {
+                'description': 'Web Links (RFC 8288)',
+                'schema': {'type': 'string'},
+                'examples': {
+                    'pagination': {
+                        'summary': """Link Header Page Number Pagination.
+
+A simple page number–based style that supports page numbers as query parameters
+and includes pagination links in an RFC 8288–compliant `Link` header.""",
+                        'value': ', '.join(
+                            (
+                                '<http://www.example.com/example-items/>; rel="first"',
+                                '<http://www.example.com/example-items/?page=3>; rel="previous"',
+                                '<http://www.example.com/example-items/?page=5>; rel="next"',
+                                '<http://www.example.com/example-items/?page=42>; rel="last"',
+                            )
+                        ),
+                    },
+                },
+            },
+        }
+        components = {
+            component_name: {},
+            **components,
+        }
+        components[component_name] = {
+            **components[component_name],
+            **content,
+        }
+
+        component_name = 'links'
+        content = {
+            'collection_first_page': {
+                'description': """First page of the collection of items.
+
+Use the URL returned in the relation type `first` of the response `Link` header.""",
+            },
+            'collection_previous_page': {
+                'description': """Previous page of the collection of items.
+
+Use the URL returned in the relation type `previous` of the response `Link` header.""",
+            },
+            'collection_next_page': {
+                'description': """Next page of the collection of items.
+
+Use the URL returned in the relation type `next` of the response `Link` header.""",
+            },
+            'collection_last_page': {
+                'description': """Last page of the collection of items.
+
+Use the URL returned in the relation type `last` of the response `Link` header.""",
+            },
+        }
+        components = {
+            component_name: {},
+            **components,
+        }
+        components[component_name] = {
+            **components[component_name],
+            **content,
+        }
+
+        return components
+
+    def get_paginated_response_headers_schema(
+        self, response_headers: Mapping[str, Mapping[str, object]]
+    ) -> Mapping[str, Mapping[str, object]]:
+        """
+        Return schema for headers of paginated responses.
+
+        .. seealso::
+          https://github.com/OAI/OpenAPI-Specification/blob/3.0.2/versions/3.0.2.md#response-object
+
+        :param response_headers: Field ``headers`` of OpenAPI ``Response`` object.
+        :return: Updated field ``headers`` of OpenAPI ``Response`` object.
+        """
+        if hasattr(super(), 'get_paginated_response_headers_schema'):
+            response_headers = super().get_paginated_response_headers_schema(response_headers)
+
+        response_headers = {
+            **response_headers,
+            'Link': {
+                '$ref': '#/components/headers/Link',
+            },
+        }
+        return response_headers
+
+    def get_paginated_response_links_schema(
+        self, response_links: Mapping[str, Mapping[str, object]]
+    ) -> Mapping[str, Mapping[str, object]]:
+        """
+        Return schema for links of paginated responses.
+
+        .. seealso::
+          https://github.com/OAI/OpenAPI-Specification/blob/3.0.2/versions/3.0.2.md#response-object
+
+        :param response_links: Field ``links`` of OpenAPI ``Response`` object.
+        :return: Updated field ``links`` of OpenAPI ``Response`` object.
+        """
+        if hasattr(super(), 'get_paginated_response_links_schema'):
+            response_links = super().get_paginated_response_links_schema(response_links)
+
+        response_links = {
+            **response_links,
+            'first_page': {'$ref': '#/components/links/collection_first_page'},
+            'previous_page': {'$ref': '#/components/links/collection_previous_page'},
+            'next_page': {'$ref': '#/components/links/collection_next_page'},
+            'last_page': {'$ref': '#/components/links/collection_last_page'},
+        }
+        return response_links
+
 
 class ObjectCountHeaderPageNumberPagination(rest_framework.pagination.PageNumberPagination):
     """
@@ -124,3 +252,63 @@ class ObjectCountHeaderPageNumberPagination(rest_framework.pagination.PageNumber
         :return: Paginated response schema.
         """
         return schema
+
+    def get_paginated_components_schemas(
+        self, components: Mapping[str, Mapping[str, object]]
+    ) -> Mapping[str, Mapping[str, object]]:
+        """
+        Return schema for pagination-related components.
+
+        .. seealso::
+          https://github.com/OAI/OpenAPI-Specification/blob/3.0.2/versions/3.0.2.md#components-object
+
+        :param components: OpenAPI ``Components`` object.
+        :return: Updated OpenAPI ``Components`` object.
+        """
+        if hasattr(super(), 'get_paginated_components_schemas'):
+            components = super().get_paginated_components_schemas(components)
+
+        if self.object_count_header:
+            component_name = 'headers'
+            content = {
+                self.object_count_header: {
+                    'description': """Total number of items in the collection.
+
+Note: Header is optional for single-page responses.""",
+                    'schema': {'type': 'integer'},
+                },
+            }
+            components = {
+                component_name: {},
+                **components,
+            }
+            components[component_name] = {
+                **components[component_name],
+                **content,
+            }
+
+        return components
+
+    def get_paginated_response_headers_schema(
+        self, response_headers: Mapping[str, Mapping[str, object]]
+    ) -> Mapping[str, Mapping[str, object]]:
+        """
+        Return schema for headers of paginated responses.
+
+        .. seealso::
+          https://github.com/OAI/OpenAPI-Specification/blob/3.0.2/versions/3.0.2.md#response-object
+
+        :param response_headers: Field ``headers`` of OpenAPI ``Response`` object.
+        :return: Updated field ``headers`` of OpenAPI ``Response`` object.
+        """
+        if hasattr(super(), 'get_paginated_response_headers_schema'):
+            response_headers = super().get_paginated_response_headers_schema(response_headers)
+
+        if self.object_count_header:
+            response_headers = {
+                **response_headers,
+                self.object_count_header: {
+                    '$ref': f'#/components/headers/{self.object_count_header}',
+                },
+            }
+        return response_headers

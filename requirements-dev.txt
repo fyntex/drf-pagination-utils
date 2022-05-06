@@ -4,35 +4,41 @@
 #
 #    pip-compile requirements-dev.in
 #
+asttokens==2.0.5
+    # via stack-data
 backcall==0.2.0
     # via ipython
-black==21.9b0
+black==22.3.0
     # via -r requirements-dev.in
 click==8.0.1
     # via black
-coverage==6.0
+coverage==6.3.2
     # via -r requirements-dev.in
 decorator==5.1.0
     # via ipython
-flake8==3.9.2
+executing==0.8.3
+    # via stack-data
+flake8==4.0.1
     # via
     #   -r requirements-dev.in
     #   flake8-formatter-junit-xml
 flake8-formatter-junit-xml==0.0.6
     # via -r requirements-dev.in
-ipython==7.28.0
+ipython==8.3.0
     # via -r requirements-dev.in
-isort==5.8.0
+isort==5.10.1
     # via -r requirements-dev.in
 jedi==0.18.0
     # via ipython
 junit-xml==1.9
     # via flake8-formatter-junit-xml
+lxml==4.7.1
+    # via unittest-xml-reporting
 matplotlib-inline==0.1.3
     # via ipython
 mccabe==0.6.1
     # via flake8
-mypy==0.910
+mypy==0.950
     # via -r requirements-dev.in
 mypy-extensions==0.4.3
     # via
@@ -52,29 +58,29 @@ prompt-toolkit==3.0.20
     # via ipython
 ptyprocess==0.7.0
     # via pexpect
-pycodestyle==2.7.0
+pure-eval==0.2.2
+    # via stack-data
+pycodestyle==2.8.0
     # via flake8
-pyflakes==2.3.1
+pyflakes==2.4.0
     # via flake8
 pygments==2.10.0
     # via ipython
-regex==2021.9.30
-    # via black
 six==1.16.0
     # via junit-xml
-toml==0.10.2
-    # via mypy
+stack-data==0.2.0
+    # via ipython
 tomli==1.2.1
-    # via black
+    # via
+    #   black
+    #   mypy
 traitlets==5.1.0
     # via
     #   ipython
     #   matplotlib-inline
 typing-extensions==3.10.0.2
-    # via
-    #   black
-    #   mypy
-unittest-xml-reporting==3.0.4
+    # via mypy
+unittest-xml-reporting==3.2.0
     # via -r requirements-dev.in
 wcwidth==0.2.5
     # via prompt-toolkit

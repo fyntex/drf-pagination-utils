@@ -5,9 +5,21 @@ This is a library that provides custom pagination styles and pagination-related 
 REST Framework.
 
 
-## Status
+## Dashboard
 
-[![CircleCI](https://circleci.com/gh/fyntex/drf-pagination-utils/tree/develop.svg?style=shield)](https://circleci.com/gh/fyntex/drf-pagination-utils/tree/develop)
+### Development
+
+| VCS Branch | Deployment Environment | VCS Repository | CI Status |
+| ---------- | ---------------------- | -------------- | --------- |
+| `develop` | Staging | [GitHub](https://github.com/fyntex/drf-pagination-utils/tree/develop) | [![CircleCI](https://dl.circleci.com/status-badge/img/gh/fyntex/drf-pagination-utils/tree/develop.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/fyntex/drf-pagination-utils/tree/develop) |
+| `master` | Production | [GitHub](https://github.com/fyntex/drf-pagination-utils/tree/master) | [![CircleCI](https://dl.circleci.com/status-badge/img/gh/fyntex/drf-pagination-utils/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/fyntex/drf-pagination-utils/tree/master) |
+
+
+### Hosting
+
+| Deployment Environment | Python Package Registry |
+| ---------------------- | ----------------------- |
+| Production | 🚧 |
 
 
 ## Installation

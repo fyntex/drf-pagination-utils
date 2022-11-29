@@ -24,7 +24,7 @@ flake8==4.0.1
     #   flake8-formatter-junit-xml
 flake8-formatter-junit-xml==0.0.6
     # via -r requirements-dev.in
-ipython==8.4.0
+ipython==8.7.0
     # via -r requirements-dev.in
 isort==5.10.1
     # via -r requirements-dev.in
@@ -80,6 +80,3 @@ unittest-xml-reporting==3.2.0
     # via -r requirements-dev.in
 wcwidth==0.2.5
     # via prompt-toolkit
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools

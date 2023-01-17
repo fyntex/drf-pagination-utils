@@ -1,5 +1,34 @@
 # History
 
+## 1.2.0 (2023-01-17)
+
+- (PR #45, 2022-05-18) chore: bump coverage from 6.3.2 to 6.3.3
+- (PR #53, 2022-07-05) chore: bump django from 3.2.13 to 3.2.14
+- (PR #52, 2022-07-06) chore: bump black from 22.3.0 to 22.6.0
+- (PR #50, 2022-07-11) chore: bump mypy from 0.950 to 0.961
+- (PR #54, 2022-07-11) chore: bump lxml from 4.7.1 to 4.9.1
+- (PR #49, 2022-07-11) chore: bump coverage from 6.3.3 to 6.4.1
+- (PR #48, 2022-07-11) chore: bump ipython from 8.3.0 to 8.4.0
+- (PR #55, 2022-07-12) chore: Update Dependabot configuration
+- (PR #56, 2022-07-21) chore: bump coverage from 6.4.1 to 6.4.2
+- (PR #60, 2022-08-18) chore: Change Dependabot schedule interval from `weekly` to `monthly`
+- (PR #62, 2022-08-29) Add information dashboard to readme
+- (PR #59, 2022-08-29) chore: bump django from 3.2.14 to 3.2.15
+- (PR #57, 2022-08-31) chore: bump mypy from 0.961 to 0.971
+- (PR #61, 2022-08-31) chore: bump coverage from 6.4.2 to 6.4.4
+- (PR #67, 2022-11-22) chore: bump djangorestframework from 3.13.1 to 3.14.0
+- (PR #71, 2022-11-23) chore: bump django from 3.2.15 to 3.2.16
+- (PR #73, 2022-11-23) chore(deps): Bump pip from 21.2.4 to 22.3.1
+- (PR #74, 2022-11-24) chore(deps): Bump pip-tools from 6.2.0 to 6.10.0
+- (PR #75, 2022-11-24) chore(deps): Bump setuptools from 57.0.0 to 65.6.1
+- (PR #76, 2022-11-24) chore(deps): Bump wheel from 0.36.2 to 0.38.4
+- (PR #77, 2022-11-24) fix: Fix Dependabot error pip.….Error: Constraints cannot have extras
+- (PR #66, 2022-11-28) chore: bump coverage from 6.4.4 to 6.5.0
+- (PR #72, 2022-11-28) chore: bump mypy from 0.971 to 0.991
+- (PR #69, 2022-11-29) chore: bump black from 22.6.0 to 22.10.0
+- (PR #78, 2022-11-29) chore: bump ipython from 8.4.0 to 8.7.0
+- (PR #82, 2023-01-04) chore: Add support for Python 3.10.9
+
 ## 1.1.0 (2022-05-06)
 
 - (PR #19, 2022-01-24) chore(deps-dev): Bump ipython from 7.28.0 to 7.31.1

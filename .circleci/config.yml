@@ -18,7 +18,7 @@ x-parameters-base: &x-parameters-base
   python_version:
     description: Python Version
     type: string
-    default: "3.8.10"
+    default: "3.10.9"
 
 # x-environment-base := Common environment variables
 x-environment-base: &x-environment-base
@@ -265,6 +265,7 @@ workflows:
               python_version:
                 - "3.8.10"
                 - "3.9.7"
+                - "3.10.9"
 
       - test:
           requires:
@@ -274,6 +275,7 @@ workflows:
               python_version:
                 - "3.8.10"
                 - "3.9.7"
+                - "3.10.9"
 
       - release:
           requires:

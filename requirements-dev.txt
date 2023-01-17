@@ -26,7 +26,7 @@ flake8-formatter-junit-xml==0.0.6
     # via -r requirements-dev.in
 ipython==8.7.0
     # via -r requirements-dev.in
-isort==5.10.1
+isort==5.11.4
     # via -r requirements-dev.in
 jedi==0.18.0
     # via ipython

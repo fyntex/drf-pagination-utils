@@ -70,12 +70,18 @@ six==1.16.0
     # via junit-xml
 stack-data==0.2.0
     # via ipython
+tomli==2.0.1
+    # via
+    #   black
+    #   mypy
 traitlets==5.1.0
     # via
     #   ipython
     #   matplotlib-inline
 typing-extensions==3.10.0.2
-    # via mypy
+    # via
+    #   black
+    #   mypy
 unittest-xml-reporting==3.2.0
     # via -r requirements-dev.in
 wcwidth==0.2.5

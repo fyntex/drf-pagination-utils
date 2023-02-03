@@ -161,11 +161,16 @@ jobs:
             source "$PYTHON_VIRTUALENV_ACTIVATE"
             make test-coverage-report
 
-      - run:
-          name: Check that compiled Python dependency manifests are up-to-date with their sources
-          command: |
-            source "$PYTHON_VIRTUALENV_ACTIVATE"
-            make --ignore-errors python-deps-sync-check
+      - when:
+          condition:
+            # FIXME: There are issues related to testing with multiple Python versions.
+            matches: { pattern: "^3\\.8\\.\\d+$", value: << parameters.python_version >> }
+          steps:
+            - run:
+                name: Check that compiled Python dependency manifests are up-to-date with their sources
+                command: |
+                  source "$PYTHON_VIRTUALENV_ACTIVATE"
+                  make python-deps-sync-check
 
       - store_test_results:
           path: test_reports/junit

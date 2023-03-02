@@ -18,3 +18,13 @@ updates:
     labels:
       - dependencies
     open-pull-requests-limit: 10
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "chore:"
+    labels:
+      - dependencies
+    open-pull-requests-limit: 5

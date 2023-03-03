@@ -11,8 +11,8 @@ REST Framework.
 
 | VCS Branch | Deployment Environment | VCS Repository | CI Status |
 | ---------- | ---------------------- | -------------- | --------- |
-| `develop` | Staging | [GitHub](https://github.com/fyntex/drf-pagination-utils/tree/develop) | [![CircleCI](https://dl.circleci.com/status-badge/img/gh/fyntex/drf-pagination-utils/tree/develop.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/fyntex/drf-pagination-utils/tree/develop) |
-| `master` | Production | [GitHub](https://github.com/fyntex/drf-pagination-utils/tree/master) | [![CircleCI](https://dl.circleci.com/status-badge/img/gh/fyntex/drf-pagination-utils/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/fyntex/drf-pagination-utils/tree/master) |
+| `develop` | Staging | [GitHub](https://github.com/fyntex/drf-pagination-utils/tree/develop) | [![GitHub Actions](https://github.com/fyntex/drf-pagination-utils/actions/workflows/ci-cd.yaml/badge.svg?branch=develop)](https://github.com/fyntex/drf-pagination-utils/actions/workflows/ci-cd.yaml?query=branch:develop) |
+| `master` | Production | [GitHub](https://github.com/fyntex/drf-pagination-utils/tree/master)  | [![GitHub Actions](https://github.com/fyntex/drf-pagination-utils/actions/workflows/ci-cd.yaml/badge.svg?branch=master)](https://github.com/fyntex/drf-pagination-utils/actions/workflows/ci-cd.yaml?query=branch:master) |
 
 
 ### Hosting

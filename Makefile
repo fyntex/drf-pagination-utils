@@ -91,6 +91,14 @@ dist: ## Create Python package distribution
 	$(PYTHON) setup.py sdist
 	$(PYTHON) setup.py bdist_wheel
 
+.PHONY: upload-release
+upload-release: ## Upload dist packages
+	$(PYTHON) -m twine upload 'dist/*'
+
+.PHONY: deploy
+deploy: upload-release
+deploy: ## Deploy or publish
+
 .PHONY: lint
 lint: ## Run linters
 	flake8

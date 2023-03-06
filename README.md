@@ -9,17 +9,17 @@ REST Framework.
 
 ### Development
 
-| VCS Branch | Deployment Environment | VCS Repository | CI Status |
-| ---------- | ---------------------- | -------------- | --------- |
-| `develop` | Staging | [GitHub](https://github.com/fyntex/drf-pagination-utils/tree/develop) | [![CircleCI](https://dl.circleci.com/status-badge/img/gh/fyntex/drf-pagination-utils/tree/develop.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/fyntex/drf-pagination-utils/tree/develop) |
-| `master` | Production | [GitHub](https://github.com/fyntex/drf-pagination-utils/tree/master) | [![CircleCI](https://dl.circleci.com/status-badge/img/gh/fyntex/drf-pagination-utils/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/fyntex/drf-pagination-utils/tree/master) |
+| VCS Branch | Deployment Environment | VCS Repository | CI/CD Status |
+| ---------- | ---------------------- | -------------- | ------------ |
+| `develop` | Staging | [GitHub](https://github.com/fyntex/drf-pagination-utils/tree/develop) | [![GitHub Actions](https://github.com/fyntex/drf-pagination-utils/actions/workflows/ci-cd.yaml/badge.svg?branch=develop)](https://github.com/fyntex/drf-pagination-utils/actions/workflows/ci-cd.yaml?query=branch:develop) |
+| `master` | Production | [GitHub](https://github.com/fyntex/drf-pagination-utils/tree/master)  | [![GitHub Actions](https://github.com/fyntex/drf-pagination-utils/actions/workflows/ci-cd.yaml/badge.svg?branch=master)](https://github.com/fyntex/drf-pagination-utils/actions/workflows/ci-cd.yaml?query=branch:master) |
 
 
 ### Hosting
 
 | Deployment Environment | Python Package Registry |
 | ---------------------- | ----------------------- |
-| Production | 🚧 |
+| Production | [PyPI](https://pypi.org/project/fyntex-drf-pagination-utils/)  |
 
 
 ## Installation
@@ -27,7 +27,7 @@ REST Framework.
 Install Python package:
 
 ```sh
-pip install 'git+https://github.com/fyntex/drf-pagination-utils.git@v1.0.0#egg=fyntex-drf-pagination-utils==1.0.0'
+pip install fyntex-drf-pagination-utils
 ```
 
 

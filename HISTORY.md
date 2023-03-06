@@ -1,5 +1,12 @@
 # History
 
+## 1.3.0 (2023-03-06)
+
+- (PR #87, 2023-01-26) Add GitHub Dependency Review
+- (PR #94, 2023-02-03) Enable Python dependency sync check for Python 3.8
+- (PR #100, 2023-03-06) Switch CI/CD from CircleCI to GitHub Actions
+- (PR #101, 2023-03-06) Publish to PyPI
+
 ## 1.2.0 (2023-01-17)
 
 - (PR #45, 2022-05-18) chore: bump coverage from 6.3.2 to 6.3.3

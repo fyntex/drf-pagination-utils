@@ -58,3 +58,19 @@ jobs:
       create_git_tag_and_github_release: ${{ github.ref == needs.workflow_config.outputs.PRODUCTION_VCS_REF }}
 
   # -----END Release Job-----
+
+  # -----BEGIN Deploy Job-----
+  deploy:
+    name: Deploy
+    if: ${{ github.ref == needs.workflow_config.outputs.PRODUCTION_VCS_REF }}
+    needs:
+      - release
+      - workflow_config
+
+    uses: ./.github/workflows/deploy.yaml
+    with:
+      deploy_env: prod
+      artifacts_path: ${{ needs.release.outputs.artifacts_path }}
+    secrets: inherit
+
+  # -----END Deploy Job-----

@@ -41,12 +41,10 @@ help:
 	@$(MAKE) -s help-tasks
 
 .PHONY: clean
+clean: clean-build
 clean: ## Delete temporary files, logs, cached files, build artifacts, etc.
 	find . -iname __pycache__ -type d -prune -exec rm -r {} \;
 	find . -iname '*.py[cod]' -delete
-
-	$(RM) -r build/
-	$(RM) -r dist/
 
 	$(RM) -r "$(MYPY_CACHE_DIR)"
 	$(RM) -r "$(COVERAGE_TEST_DATA_FILE)"
@@ -56,6 +54,15 @@ clean: ## Delete temporary files, logs, cached files, build artifacts, etc.
 clean-all: clean
 clean-all: ## Delete (almost) everything that can be reconstructed later
 	$(RM) -r *.egg-info/
+
+.PHONY: clean-build
+clean-build: ## Remove build artifacts
+	$(RM) -r .eggs/
+	$(RM) -r build/
+	$(RM) -r dist/
+
+	find . -name '*.egg-info' -exec $(RM) -r {} +
+	find . -name '*.egg' -exec $(RM) {} +
 
 .PHONY: install
 install: install-deps

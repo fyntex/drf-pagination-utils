@@ -1,5 +1,9 @@
 # History
 
+## 1.3.1 (2023-03-07)
+
+- (PR #104, 2023-03-07) Add Make command `clean-build`
+
 ## 1.3.0 (2023-03-06)
 
 - (PR #87, 2023-01-26) Add GitHub Dependency Review

@@ -10,6 +10,6 @@ flake8-formatter-junit-xml==0.0.6
 flake8==6.0.0
 ipython==8.7.0
 isort==5.12.0
-mypy==0.991
+mypy==1.1.1
 twine==4.0.2
 unittest-xml-reporting==3.2.0

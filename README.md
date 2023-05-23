@@ -15,6 +15,11 @@ REST Framework.
 | `master` | Production | [GitHub](https://github.com/fyntex/drf-pagination-utils/tree/master)  | [![GitHub Actions](https://github.com/fyntex/drf-pagination-utils/actions/workflows/ci-cd.yaml/badge.svg?branch=master)](https://github.com/fyntex/drf-pagination-utils/actions/workflows/ci-cd.yaml?query=branch:master) |
 
 
+| Code Coverage |
+| ------------- |
+| [![Codecov](https://codecov.io/gh/fyntex/drf-pagination-utils/branch/develop/graph/badge.svg)](https://codecov.io/gh/fyntex/drf-pagination-utils) |
+
+
 ### Hosting
 
 | Deployment Environment | Python Package Registry |

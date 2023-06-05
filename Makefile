@@ -149,4 +149,5 @@ test-coverage-report: export COVERAGE_RCFILE = $(COVERAGE_TEST_RCFILE)
 test-coverage-report: export COVERAGE_FILE = $(COVERAGE_TEST_DATA_FILE)
 test-coverage-report: ## Run tests, measure code coverage, and generate reports
 	$(COVERAGE) report
+	$(COVERAGE) xml
 	$(COVERAGE) html

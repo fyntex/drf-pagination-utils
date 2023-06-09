@@ -1,5 +1,22 @@
 # History
 
+## 1.3.2 (2023-06-09)
+
+- (PR #115, 2023-04-05) Add Git commit linter
+- (PR #116, 2023-04-05) Decrease Dependabot's open pull request limit to 5
+- (PR #109, 2023-04-05) Bump black from 22.10.0 to 23.3.0
+- (PR #96, 2023-04-14) chore: bump django from 3.2.16 to 3.2.18
+- (PR #88, 2023-04-14) chore: bump isort from 5.10.1 to 5.12.0
+- (PR #90, 2023-04-17) chore: bump flake8 from 4.0.1 to 6.0.0
+- (PR #106, 2023-04-17) chore: bump mypy from 0.991 to 1.1.1
+- (PR #110, 2023-04-24) chore: bump ipython from 8.7.0 to 8.12.0
+- (PR #117, 2023-04-24) chore: bump coverage from 6.5.0 to 7.2.3
+- (PR #113, 2023-04-24) chore: bump actions/dependency-review-action from 3.0.3 to 3.0.4
+- (PR #111, 2023-04-24) chore: bump actions/cache from 3.2.5 to 3.3.1
+- (PR #119, 2023-04-24) chore: bump actions/checkout from 3.3.0 to 3.5.2
+- (PR #126, 2023-06-05) Add Codecov to CI workflow
+- (PR #124, 2023-06-07) chore: bump django from 3.2.18 to 3.2.19
+
 ## 1.3.1 (2023-03-07)
 
 - (PR #104, 2023-03-07) Add Make command `clean-build`

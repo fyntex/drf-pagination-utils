@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - name: Check Out VCS Repository
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.5.2
 
       - name: Set Up Python ${{ matrix.python_version }}
         uses: actions/setup-python@v4.5.0
@@ -45,7 +45,7 @@ jobs:
         run: make python-virtualenv PYTHON_VIRTUALENV_DIR=".pyenv"
 
       - name: Restoring/Saving Cache
-        uses: actions/cache@v3.2.5
+        uses: actions/cache@v3.3.1
         with:
           path: ".pyenv"
           key: py-v1-deps-${{ runner.os }}-${{ matrix.python_version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}-${{ hashFiles('Makefile', 'make/**.mk') }}
@@ -74,7 +74,7 @@ jobs:
 
     steps:
       - name: Check Out VCS Repository
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.5.2
 
       - name: Set Up Python ${{ matrix.python_version }}
         uses: actions/setup-python@v4.5.0
@@ -82,7 +82,7 @@ jobs:
           python-version: "${{ matrix.python_version }}"
 
       - name: Restoring/Saving Cache
-        uses: actions/cache@v3.2.5
+        uses: actions/cache@v3.3.1
         with:
           path: ".pyenv"
           key: py-v1-deps-${{ runner.os }}-${{ matrix.python_version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.txt') }}-${{ hashFiles('Makefile', 'make/**.mk') }}
@@ -115,6 +115,12 @@ jobs:
         run: |
           source "$PYTHON_VIRTUALENV_ACTIVATE"
           make test-coverage-report
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3.1.4
+        with:
+          directory: ./test_reports/coverage/
+          fail_ci_if_error: true
 
       - name: Check that compiled Python dependency manifests are up-to-date with their sources
         # FIXME: There are issues related to testing with multiple Python versions.

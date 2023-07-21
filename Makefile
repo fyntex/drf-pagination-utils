@@ -77,6 +77,7 @@ install-dev: ## Install for development
 	$(PYTHON_PIP) check
 
 .PHONY: install-deps
+install-deps: python-pip-install
 install-deps: ## Install dependencies
 	$(PYTHON_PIP) install -r requirements.txt
 	$(PYTHON_PIP) check

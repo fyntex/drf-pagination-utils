@@ -20,7 +20,7 @@ charset-normalizer==3.1.0
     # via requests
 click==8.0.1
     # via black
-coverage==7.2.3
+coverage==7.2.7
     # via -r requirements-dev.in
 cryptography==41.0.2
     # via secretstorage

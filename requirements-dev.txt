@@ -22,7 +22,7 @@ click==8.0.1
     # via black
 coverage==7.2.7
     # via -r requirements-dev.in
-cryptography==41.0.2
+cryptography==41.0.3
     # via secretstorage
 decorator==5.1.0
     # via ipython
@@ -42,7 +42,7 @@ importlib-metadata==6.0.0
     # via
     #   keyring
     #   twine
-importlib-resources==6.0.0
+importlib-resources==6.0.1
     # via keyring
 ipython==8.12.0
     # via -r requirements-dev.in

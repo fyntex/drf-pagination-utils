@@ -42,9 +42,7 @@ importlib-metadata==6.0.0
     # via
     #   keyring
     #   twine
-importlib-resources==6.0.1
-    # via keyring
-ipython==8.12.2
+ipython==8.14.0
     # via -r requirements-dev.in
 isort==5.12.0
     # via -r requirements-dev.in
@@ -130,10 +128,6 @@ six==1.16.0
     #   junit-xml
 stack-data==0.2.0
     # via ipython
-tomli==2.0.1
-    # via
-    #   black
-    #   mypy
 traitlets==5.1.0
     # via
     #   ipython
@@ -141,11 +135,7 @@ traitlets==5.1.0
 twine==4.0.2
     # via -r requirements-dev.in
 typing-extensions==4.5.0
-    # via
-    #   black
-    #   ipython
-    #   mypy
-    #   rich
+    # via mypy
 unittest-xml-reporting==3.2.0
     # via -r requirements-dev.in
 urllib3==1.26.14
@@ -157,6 +147,4 @@ wcwidth==0.2.5
 webencodings==0.5.1
     # via bleach
 zipp==3.15.0
-    # via
-    #   importlib-metadata
-    #   importlib-resources
+    # via importlib-metadata

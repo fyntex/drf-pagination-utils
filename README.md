@@ -17,7 +17,7 @@ REST Framework.
 
 | Code Coverage |
 | ------------- |
-| [![Codecov](https://codecov.io/gh/fyntex/drf-pagination-utils/branch/develop/graph/badge.svg)](https://codecov.io/gh/fyntex/drf-pagination-utils) |
+| [![Codecov](https://codecov.io/gh/cordada/drf-pagination-utils/graph/badge.svg?token=66RN4HVW2C)](https://codecov.io/gh/cordada/drf-pagination-utils) |
 
 
 ### Hosting

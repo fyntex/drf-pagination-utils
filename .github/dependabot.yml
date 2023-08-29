@@ -11,6 +11,9 @@ version: 2
 updates:
   - package-ecosystem: pip
     directory: /
+    groups:
+      development-dependencies:
+        dependency-type: development
     schedule:
       interval: monthly
     commit-message:
@@ -21,6 +24,9 @@ updates:
 
   - package-ecosystem: github-actions
     directory: /
+    groups:
+      production-dependencies:
+        dependency-type: production
     schedule:
       interval: monthly
     commit-message:

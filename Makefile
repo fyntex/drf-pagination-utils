@@ -3,11 +3,11 @@ SHELL = /usr/bin/env bash -e -o pipefail
 # Python
 PYTHON = python3
 PYTHON_PIP = $(PYTHON) -m pip
-PYTHON_PIP_VERSION_SPECIFIER = ~=22.3.1
+PYTHON_PIP_VERSION_SPECIFIER = ==23.1.2
 PYTHON_SETUPTOOLS_VERSION_SPECIFIER = ~=65.6.1
 PYTHON_WHEEL_VERSION_SPECIFIER = ~=0.38.4
 PYTHON_VIRTUALENV_DIR = .pyenv
-PYTHON_PIP_TOOLS_VERSION_SPECIFIER = ~=6.10.0
+PYTHON_PIP_TOOLS_VERSION_SPECIFIER = ==6.14.0
 PYTHON_PIP_TOOLS_SRC_FILES = requirements.in requirements-dev.in
 
 # Django Admin
@@ -77,6 +77,7 @@ install-dev: ## Install for development
 	$(PYTHON_PIP) check
 
 .PHONY: install-deps
+install-deps: python-pip-install
 install-deps: ## Install dependencies
 	$(PYTHON_PIP) install -r requirements.txt
 	$(PYTHON_PIP) check

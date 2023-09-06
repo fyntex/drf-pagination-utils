@@ -1,5 +1,29 @@
 # History
 
+## 1.3.3 (2023-09-06)
+
+- (PR #137, 2023-07-18) chore(deps): Bump mypy from 1.1.1 to 1.4.1
+- (PR #140, 2023-07-18) chore: Bump actions/setup-python from 4.5.0 to 4.7.0
+- (PR #141, 2023-07-19) chore(deps): Update `pip-tools` from 6.10.0 to 6.14.0
+- (PR #139, 2023-07-19) chore(deps): Bump cryptography from 39.0.2 to 41.0.2
+- (PR #138, 2023-07-19) chore(deps): Bump django from 3.2.19 to 3.2.20
+- (PR #143, 2023-07-20) chore(deps): Update `pip` from 22.3.1 to 23.1.2
+- (PR #118, 2023-07-21) chore(deps): Bump sqlparse from 0.4.2 to 0.4.4
+- (PR #142, 2023-07-21) chore: Bump pygments from 2.14.0 to 2.15.0
+- (PR #125, 2023-07-21) chore(deps): Bump requests from 2.28.2 to 2.31.0
+- (PR #145, 2023-07-21) Install Pip when installing dependencies
+- (PR #129, 2023-07-21) chore(deps): Bump actions/dependency-review-action from 3.0.4 to 3.0.6
+- (PR #136, 2023-07-21) chore(deps): Bump actions/checkout from 3.5.2 to 3.5.3
+- (PR #130, 2023-07-21) chore(deps): Bump coverage from 7.2.3 to 7.2.7
+- (PR #144, 2023-07-21) chore: Bump black from 23.3.0 to 23.7.0
+- (PR #146, 2023-07-25) chore: Bump certifi from 2022.12.7 to 2023.7.22
+- (PR #150, 2023-08-29) Add dependency groups to Dependabot configuration
+- (PR #151, 2023-08-29) chore: Bump the production-dependencies group with 2 updates
+- (PR #149, 2023-08-29) chore: Bump cryptography from 41.0.2 to 41.0.3
+- (PR #153, 2023-08-29) Update Codecov badge in readme
+- (PR #152, 2023-08-29) chore: Bump the development-dependencies group with 4 updates
+- (PR #154, 2023-09-05) Add missing tests
+
 ## 1.3.2 (2023-06-09)
 
 - (PR #115, 2023-04-05) Add Git commit linter

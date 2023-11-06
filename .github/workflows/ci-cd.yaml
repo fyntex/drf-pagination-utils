@@ -42,6 +42,7 @@ jobs:
       - workflow_config
 
     uses: ./.github/workflows/ci.yaml
+    secrets: inherit
 
   # -----END CI Job-----
 

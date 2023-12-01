@@ -8,7 +8,7 @@ asttokens==2.0.5
     # via stack-data
 backcall==0.2.0
     # via ipython
-black==23.10.1
+black==23.11.0
     # via -r requirements-dev.in
 bleach==6.0.0
     # via readme-renderer
@@ -72,7 +72,7 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==9.1.0
     # via jaraco-classes
-mypy==1.6.1
+mypy==1.7.1
     # via -r requirements-dev.in
 mypy-extensions==1.0.0
     # via

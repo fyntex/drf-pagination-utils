@@ -21,7 +21,7 @@ __pycache__/
 *$py.class
 
 # Python Distribution & Packaging
-/*.egg-info/
+*.egg-info/
 /build/
 /dist/
 

@@ -6,5 +6,5 @@
 # - https://packaging.python.org/guides/using-manifest-in/
 # - https://setuptools.readthedocs.io/en/latest/userguide/datafiles.html
 
-recursive-include fyntex *.py
-recursive-include fyntex py.typed
+recursive-include src *.py
+recursive-include src py.typed

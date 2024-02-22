@@ -22,7 +22,7 @@ click==8.0.1
     # via black
 coverage==7.4.1
     # via -r requirements-dev.in
-cryptography==42.0.2
+cryptography==42.0.4
     # via secretstorage
 decorator==5.1.0
     # via ipython

@@ -1,5 +1,8 @@
 SHELL = /usr/bin/env bash -e -o pipefail
 
+# Sources Root
+SOURCES_ROOT = $(CURDIR)/src
+
 # Python
 PYTHON = python3
 PYTHON_PIP = $(PYTHON) -m pip
@@ -11,7 +14,7 @@ PYTHON_PIP_TOOLS_VERSION_SPECIFIER = ==6.14.0
 PYTHON_PIP_TOOLS_SRC_FILES = requirements.in requirements-dev.in
 
 # Django Admin
-DJANGO_ADMIN = $(PYTHON) $(CURDIR)/manage.py
+DJANGO_ADMIN = $(PYTHON) $(SOURCES_ROOT)/manage.py
 
 # Black
 BLACK = black --config .black.cfg.toml
@@ -108,37 +111,46 @@ deploy: upload-release
 deploy: ## Deploy or publish
 
 .PHONY: lint
+lint: FLAKE8_FILES = *.py "$(SOURCES_ROOT)"
+lint: ISORT_FILES = *.py "$(SOURCES_ROOT)"
+lint: BLACK_SRC = *.py "$(SOURCES_ROOT)"
 lint: ## Run linters
-	flake8
+	flake8 $(FLAKE8_FILES)
 	mypy
-	isort --check-only .
+	isort --check-only $(ISORT_FILES)
 	$(PYTHON) setup.py check --metadata
-	$(BLACK) --check .
+	$(BLACK) --check $(BLACK_SRC)
 
 .PHONY: lint-report
+lint-report: FLAKE8_FILES = *.py "$(SOURCES_ROOT)"
 lint-report: FLAKE8_JUNIT_REPORT_DIR = $(TEST_REPORT_DIR)/junit/flake8
 lint-report: MYPY_JUNIT_REPORT_DIR = $(TEST_REPORT_DIR)/junit/mypy
 lint-report: ## Run linters and generate reports
 	mkdir -p "$(FLAKE8_JUNIT_REPORT_DIR)"
-	-flake8 --format junit-xml --output-file "$(FLAKE8_JUNIT_REPORT_DIR)/report.junit.xml"
+	-flake8 --format junit-xml --output-file "$(FLAKE8_JUNIT_REPORT_DIR)/report.junit.xml" $(FLAKE8_FILES)
 
 	mkdir -p "$(MYPY_JUNIT_REPORT_DIR)"
 	-mypy --no-pretty --junit-xml "$(MYPY_JUNIT_REPORT_DIR)/report.junit.xml"
 
 .PHONY: lint-fix
+lint-fix: BLACK_SRC = *.py "$(SOURCES_ROOT)"
+lint-fix: ISORT_FILES = *.py "$(SOURCES_ROOT)"
 lint-fix: ## Fix lint errors
-	$(BLACK) .
-	isort .
+	$(BLACK) $(BLACK_SRC)
+	isort $(ISORT_FILES)
 
 .PHONY: test
+test: DJANGO_ADMIN_TEST_TEST_LABELS ?= "$(SOURCES_ROOT)"
 test: django-test
 test: ## Run tests
 
 .PHONY: test-report
+test-report: export DJANGO_ADMIN_TEST_TEST_LABELS ?= "$(SOURCES_ROOT)"
 test-report: django-test-report
 test-report: ## Run tests and generate reports
 
 .PHONY: test-coverage
+test-coverage: DJANGO_ADMIN_TEST_TEST_LABELS ?= "$(SOURCES_ROOT)"
 test-coverage: PYTHON =
 test-coverage: export COVERAGE_RCFILE = $(COVERAGE_TEST_RCFILE)
 test-coverage: export COVERAGE_FILE = $(COVERAGE_TEST_DATA_FILE)

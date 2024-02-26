@@ -6,7 +6,7 @@
 #
 asgiref==3.4.1
     # via django
-django==3.2.20
+django==3.2.24
     # via djangorestframework
 djangorestframework==3.14.0
     # via -r requirements.in

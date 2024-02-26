@@ -3,7 +3,7 @@ COVERAGE ?= coverage
 
 .PHONY: django-test
 django-test:
-	$(DJANGO_ADMIN) test
+	$(DJANGO_ADMIN) test $(DJANGO_ADMIN_TEST_ARGS) $(DJANGO_ADMIN_TEST_TEST_LABELS)
 	$(DJANGO_ADMIN) makemigrations --dry-run --check -v3
 
 .PHONY: django-test-report
@@ -17,4 +17,4 @@ django-test-report:
 
 .PHONY: django-test-coverage
 django-test-coverage:
-	-$(COVERAGE) run $(DJANGO_ADMIN) test
+	-$(COVERAGE) run $(DJANGO_ADMIN) test $(DJANGO_ADMIN_TEST_TEST_LABELS)

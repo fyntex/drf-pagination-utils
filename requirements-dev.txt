@@ -8,7 +8,7 @@ asttokens==2.0.5
     # via stack-data
 backcall==0.2.0
     # via ipython
-black==23.7.0
+black==24.1.1
     # via -r requirements-dev.in
 bleach==6.0.0
     # via readme-renderer
@@ -20,9 +20,9 @@ charset-normalizer==3.1.0
     # via requests
 click==8.0.1
     # via black
-coverage==7.3.0
+coverage==7.4.1
     # via -r requirements-dev.in
-cryptography==41.0.3
+cryptography==42.0.4
     # via secretstorage
 decorator==5.1.0
     # via ipython
@@ -30,7 +30,7 @@ docutils==0.19
     # via readme-renderer
 executing==0.8.3
     # via stack-data
-flake8==6.1.0
+flake8==7.0.0
     # via
     #   -r requirements-dev.in
     #   flake8-formatter-junit-xml
@@ -42,11 +42,11 @@ importlib-metadata==6.0.0
     # via
     #   keyring
     #   twine
-importlib-resources==6.0.1
+importlib-resources==6.1.0
     # via keyring
-ipython==8.12.2
+ipython==8.12.3
     # via -r requirements-dev.in
-isort==5.12.0
+isort==5.13.2
     # via -r requirements-dev.in
 jaraco-classes==3.2.3
     # via keyring
@@ -72,7 +72,7 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==9.1.0
     # via jaraco-classes
-mypy==1.5.1
+mypy==1.8.0
     # via -r requirements-dev.in
 mypy-extensions==1.0.0
     # via
@@ -102,7 +102,7 @@ pycodestyle==2.11.0
     # via flake8
 pycparser==2.21
     # via cffi
-pyflakes==3.1.0
+pyflakes==3.2.0
     # via flake8
 pygments==2.15.0
     # via
@@ -148,7 +148,7 @@ typing-extensions==4.5.0
     #   rich
 unittest-xml-reporting==3.2.0
     # via -r requirements-dev.in
-urllib3==1.26.14
+urllib3==1.26.18
     # via
     #   requests
     #   twine

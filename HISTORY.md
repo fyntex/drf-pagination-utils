@@ -1,5 +1,23 @@
 # History
 
+## 1.3.4 (2024-02-26)
+
+- (PR #167, 2023-11-06) chore: Bump django from 3.2.20 to 3.2.23
+- (PR #168, 2023-11-06) Add Codecov repository upload token
+- (PR #169, 2023-11-06) chore: Bump the production-dependencies group with 5 updates
+- (PR #158, 2023-11-06) chore: Bump cryptography from 41.0.3 to 41.0.4
+- (PR #162, 2023-11-06) chore: Bump urllib3 from 1.26.14 to 1.26.18
+- (PR #166, 2023-11-07) chore: Bump the development-dependencies group with 4 updates
+- (PR #170, 2024-01-10) chore: Bump cryptography from 41.0.4 to 41.0.6
+- (PR #175, 2024-01-10) chore: Bump the development-dependencies group with 5 updates
+- (PR #176, 2024-01-10) Change Python project structure from Flat layout to Src layout
+- (PR #177, 2024-01-12) chore: Bump the production-dependencies group with 5 updates
+- (PR #179, 2024-02-02) chore: Bump the production-dependencies group with 4 updates
+- (PR #178, 2024-02-02) chore: Bump the development-dependencies group with 2 updates
+- (PR #182, 2024-02-19) chore: Bump cryptography from 41.0.6 to 42.0.2
+- (PR #181, 2024-02-21) chore: Bump django from 3.2.23 to 3.2.24
+- (PR #183, 2024-02-26) chore: Bump cryptography from 42.0.2 to 42.0.4
+
 ## 1.3.3 (2023-09-06)
 
 - (PR #137, 2023-07-18) chore(deps): Bump mypy from 1.1.1 to 1.4.1

@@ -36,7 +36,7 @@ flake8==7.0.0
     #   flake8-formatter-junit-xml
 flake8-formatter-junit-xml==0.0.6
     # via -r requirements-dev.in
-idna==3.4
+idna==3.7
     # via requests
 importlib-metadata==6.0.0
     # via

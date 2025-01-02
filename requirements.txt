@@ -4,17 +4,18 @@
 #
 #    pip-compile --strip-extras requirements.in
 #
-asgiref==3.4.1
+asgiref==3.8.1
     # via django
 backports-zoneinfo==0.2.1 ; python_version < "3.9"
     # via
     #   -r requirements.in
+    #   django
     #   djangorestframework
-django==3.2.25
+django==4.2.16
     # via djangorestframework
 djangorestframework==3.15.1
     # via -r requirements.in
-pytz==2021.3
-    # via django
 sqlparse==0.5.0
     # via django
+typing-extensions==4.12.2
+    # via asgiref

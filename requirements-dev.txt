@@ -110,6 +110,7 @@ twine==6.0.1
     # via -r requirements-dev.in
 typing-extensions==4.12.2
     # via
+    #   -c requirements.txt
     #   black
     #   mypy
     #   rich
